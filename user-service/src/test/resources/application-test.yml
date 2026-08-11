@@ -1,0 +1,20 @@
+
+  spring:
+    application:
+      name: user-service
+
+    config:
+      import: ""
+
+    datasource:
+      url: jdbc:postgresql://localhost:5432/smart-recruit
+      username: postgres
+      password: postgres
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+
+  eureka:
+    client:
+      enabled: false
