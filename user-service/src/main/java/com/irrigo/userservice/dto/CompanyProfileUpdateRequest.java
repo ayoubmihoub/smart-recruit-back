@@ -3,14 +3,14 @@ package com.irrigo.userservice.dto;
 import lombok.Data;
 
 @Data
-public class CompanySignupRequest {
+public class CompanyProfileUpdateRequest {
 
-    private String name;
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
     private String phone;
+
+    private String name;
     private String website;
     private String country;
     private String governorate;
@@ -18,4 +18,5 @@ public class CompanySignupRequest {
     private String sector;
     private String registrationNumber;
     private String registrationDocumentUrl;
+    private String logoUrl;
 }

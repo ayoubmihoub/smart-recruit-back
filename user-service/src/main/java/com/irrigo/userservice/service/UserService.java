@@ -31,8 +31,7 @@ public class UserService {
         User existing = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        existing.setFirstName(user.getFirstName());
-        existing.setLastName(user.getLastName());
+        existing.setEmail(user.getEmail());
         existing.setPhone(user.getPhone());
 
         return userRepository.save(existing);
