@@ -1,6 +1,9 @@
 spring:
+  application:
+    name: user-service
+
   config:
-    import: optional:configserver:http://localhost:8888
+    import: ""
 
   datasource:
     url: jdbc:postgresql://localhost:5432/smart-recruit
@@ -11,6 +14,29 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  mail:
+    host: localhost
+    port: 1025
+
+eureka:
+  client:
+    enabled: false
+
+keycloak:
+  server-url: http://localhost:8081
+  realm: smart-recruit
+  admin-realm: master
+  admin-client-id: admin-cli
+  admin-username: test
+  admin-password: test
+  client-id: test
+  client-secret: test
+
+app:
+  frontend-url: http://localhost:4200
+
+logging:
+  level:
+    org.springframework.web: DEBUG
