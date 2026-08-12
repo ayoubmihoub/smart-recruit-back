@@ -34,6 +34,9 @@ keycloak:
   client-id: test
   client-secret: test
 
+app:
+  frontend-url: http://localhost:4200
+
 logging:
   level:
     org.springframework.web: DEBUG
