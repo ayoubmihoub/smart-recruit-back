@@ -28,7 +28,7 @@
           env:
             POSTGRES_DB: smart-recruit
             POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: postgres
+            POSTGRES_PASSWORD: "***"
           ports:
             - 5432:5432
           options: >-
