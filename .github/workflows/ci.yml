@@ -20,15 +20,28 @@
 
   jobs:
     build:
-
       runs-on: ubuntu-latest
+
+      services:
+        postgres:
+          image: postgres:18
+          env:
+            POSTGRES_DB: smart-recruit
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+          ports:
+            - 5432:5432
+          options: >-
+            --health-cmd "pg_isready -U postgres -d smart-recruit"
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5
 
       defaults:
         run:
           working-directory: user-service
 
       steps:
-
         - name: Checkout
           uses: actions/checkout@v5
 
@@ -38,6 +51,10 @@
             java-version: '17'
             distribution: 'temurin'
             cache: maven
+
+        - name: Check PostgreSQL
+          run: |
+            pg_isready -h localhost -p 5432 -U postgres
 
         - name: Build and Test
           run: ./mvnw clean verify
