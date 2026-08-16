@@ -29,6 +29,7 @@ public class AuthService {
     private final CompanyRepository companyRepository;
     private final KeycloakService keycloakService;
     private final CandidateRepository candidateRepository;
+    private final RestTemplate restTemplate;
 
     @Value("${keycloak.server-url}")
     private String serverUrl;
@@ -123,7 +124,6 @@ public class AuthService {
 
     public String signin(SigninRequest request) {
 
-        RestTemplate restTemplate = new RestTemplate();
 
         String url = serverUrl
                 + "/realms/"
